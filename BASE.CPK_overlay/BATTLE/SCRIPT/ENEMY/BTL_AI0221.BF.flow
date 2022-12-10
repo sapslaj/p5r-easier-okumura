@@ -31,8 +31,9 @@ void ai0221_main()
     
     if ( BIT_CHK( 11617 ) == 1 )
     {
-        AI_ACT_SKILL( 336 );
-        AI_TAR_RND();
+        // AI_ACT_SKILL( 336 ); // Rakukaja
+        // AI_TAR_RND();
+	AI_ACT_WAIT();
         BIT_OFF( 11617 );
         return;
     }
@@ -69,8 +70,9 @@ void ai0221_main()
         
         if ( AI_CHK_FRIDHP( 610, 80 ) == 1 )
         {
-            AI_ACT_SKILL( 475 );
-            AI_TAR_ID( 610 );
+            // AI_ACT_SKILL( 475 ); // SacrificeOrder
+            // AI_TAR_ID( 610 );
+	    AI_ACT_WAIT();
             AI_SET_GLOBAL( 12, 1 );
             return;
         }
@@ -125,16 +127,17 @@ void ai0221_main()
         }
         else if ( ( ( BIT_CHK( 11704 ) == 1 ) && ( AI_GET_LOCAL_PARAM( 0 ) == 0 ) ) && ( AI_GET_GLOBAL( 9 ) == 1 ) )
         {
-            AI_ACT_SKILL( 346 );
+            // AI_ACT_SKILL( 346 ); // Rakunda
             
-            if ( ( AI_CHK_ENID( var5 ) == 1 ) && ( AI_CHK_ENIDBAD( var5, 0x00080000 ) == 0 ) )
-            {
-                AI_TAR_ID( var5 );
-            }
-            else 
-            {
-                AI_TAR_RND();
-            }
+            // if ( ( AI_CHK_ENID( var5 ) == 1 ) && ( AI_CHK_ENIDBAD( var5, 0x00080000 ) == 0 ) )
+            // {
+            //     AI_TAR_ID( var5 );
+            // }
+            // else 
+            // {
+            //     AI_TAR_RND();
+            // }
+	    AI_ACT_WAIT();
 
             AI_SET_LOCAL_PARAM( 0, 1 );
             AI_SET_GLOBAL( 26, 1 );
@@ -155,15 +158,17 @@ void ai0221_main()
             
             if ( AI_GET_GLOBAL( 26 ) == 1 )
             {
-                AI_ACT_SKILL( 351 );
-                AI_TAR_RND();
+                // AI_ACT_SKILL( 351 ); // Marakunda
+                // AI_TAR_RND();
+		AI_ACT_WAIT();
                 AI_SET_GLOBAL( 26, 2 );
                 return;
             }
             else if ( AI_GET_GLOBAL( 26 ) == 2 )
             {
-                AI_ACT_SKILL( 89 );
-                AI_TAR_RND();
+                // AI_ACT_SKILL( 89 ); // FaminesScream
+                // AI_TAR_RND();
+		AI_ACT_WAIT();
                 AI_SET_GLOBAL( 26, 1 );
                 return;
             }
@@ -178,8 +183,9 @@ void ai0221_main()
                 
                 if ( var3 < 25 )
                 {
-                    AI_ACT_SKILL( 356 );
-                    AI_TAR_RND();
+                    // AI_ACT_SKILL( 356 ); // Dekaja
+                    // AI_TAR_RND();
+		    AI_ACT_WAIT();
                     var6 = AI_GET_LOCAL_PARAM( 0 );
                     AI_SET_LOCAL_PARAM( 0, ( var6 + 1 ) );
                     return;
@@ -191,8 +197,9 @@ void ai0221_main()
                 
                 if ( var3 < 25 )
                 {
-                    AI_ACT_SKILL( 355 );
-                    AI_TAR_RND();
+                    // AI_ACT_SKILL( 355 ); // Dekunda
+                    // AI_TAR_RND();
+		    AI_ACT_WAIT();
                     var6 = AI_GET_LOCAL_PARAM( 0 );
                     AI_SET_LOCAL_PARAM( 0, ( var6 + 1 ) );
                     return;
@@ -211,8 +218,9 @@ void ai0221_main()
                 }
                 else 
                 {
-                    AI_ACT_SKILL( 475 );
-                    AI_TAR_RND();
+                    // AI_ACT_SKILL( 475 ); // SacrificeOrder
+                    // AI_TAR_RND();
+		    AI_ACT_WAIT();
                     var6 = AI_GET_LOCAL_PARAM( 0 );
                     AI_SET_LOCAL_PARAM( 0, ( var6 + 1 ) );
                     return;
@@ -240,8 +248,9 @@ void ai0221_main()
         }
         else 
         {
-            AI_ACT_SKILL( 475 );
-            AI_TAR_RND();
+            // AI_ACT_SKILL( 475 ); // SacrificeOrder
+            // AI_TAR_RND();
+	    AI_ACT_WAIT();
             return;
         }
 
