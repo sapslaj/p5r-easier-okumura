@@ -1,0 +1,47 @@
+
+// 
+// FlowScript decompiled using Atlus Script Tools by TGE (2017-2021)
+// In the unfortunate case of any bugs, please report them back to me.
+// 
+
+
+// Main battle script for shadow Haru (Okumura boss fight)
+
+// 
+// Procedure declarations
+// 
+
+// Procedure Index: 0
+void ai0610_main()
+{
+    
+    if ( AI_GET_GLOBAL( 12 ) > 1 )
+    {
+        
+        if ( AI_CHK_EXTENDEDWAIT() == 1 )
+        {
+            // AI_ACT_SKILL( 476 ); // SelflessDevotion
+            // AI_TAR_RND();
+	    AI_ACT_WAIT();
+            AI_SET_GLOBAL( 11, 1 );
+            return;
+        }
+        else 
+        {
+            // AI_ACT_SKILL( 476 ); // SelflessDevotion
+            // AI_TAR_RND();
+	    AI_ACT_WAIT();
+            AI_SET_GLOBAL( 11, 1 );
+            return;
+        }
+
+    }
+    else 
+    {
+        // AI_ACT_ATTACK();
+        // AI_TAR_RND();
+	AI_ACT_WAIT();
+    }
+
+}
+
