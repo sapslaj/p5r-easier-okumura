@@ -1,0 +1,348 @@
+
+// 
+// FlowScript decompiled using Atlus Script Tools by TGE (2017-2021)
+// In the unfortunate case of any bugs, please report them back to me.
+// 
+
+// Main battle script for Corporobo MDL-ED; large black robot with glowing red eyes
+
+// 
+// Procedure declarations
+// 
+
+// Procedure Index: 0
+void ai0222_main()
+{
+    int var1;
+    int var2;
+    int var3;
+    int var4;
+    var1 = RND( 100 );
+    var2 = AI_GET_GLOBAL( 2 );
+    var3 = AI_GET_GLOBAL( 3 );
+    var4 = AI_GET_GLOBAL( 5 );
+    BIT_ON( 11348 );
+    
+    if ( AI_CHK_MORE() == 1 )
+    {
+        
+        if ( ( ( ( AI_CHK_ENHOJO( 1 ) == 1 ) || ( AI_CHK_ENHOJO( 0x10 ) == 1 ) ) || ( AI_CHK_ENHOJO( 4 ) == 1 ) ) || ( AI_CHK_ENHOJO( 0x40 ) == 1 ) )
+        {
+            
+            if ( var1 < 50 )
+            {
+                // AI_ACT_SKILL( 356 ); // Dekaja
+                // AI_TAR_RND();
+		AI_ACT_WAIT();
+                return;
+            }
+
+        }
+        else if ( ( ( ( AI_CHK_MYHOJO( 2 ) == 1 ) || ( AI_CHK_MYHOJO( 8 ) == 1 ) ) || ( AI_CHK_MYHOJO( 0x20 ) == 1 ) ) || ( AI_CHK_MYHOJO( 0x80 ) == 1 ) )
+        {
+            
+            if ( var1 < 50 )
+            {
+                // AI_ACT_SKILL( 355 ); // Dekunda
+                // AI_TAR_RND();
+		AI_ACT_WAIT();
+                return;
+            }
+
+        }
+
+        // AI_ACT_SKILL( 338 ); // HeatRiser
+        // AI_TAR_RND();
+	AI_ACT_WAIT();
+        return;
+    }
+
+    
+    if ( AI_CHK_MYHP( 25 ) == 1 )
+    {
+        AI_SET_GLOBAL( 28, 1 );
+        
+        if ( BIT_CHK( 11407 ) == 1 )
+        {
+            AI_SET_GLOBAL( 5, 0 );
+            BIT_OFF( 11407 );
+            // AI_ACT_SKILL( 676 ); // BigBangChallenge
+            // AI_TAR_RND();
+	    AI_ACT_WAIT();
+            return;
+        }
+        else if ( var4 == 0 )
+        {
+            AI_SET_GLOBAL( 5, 1 );
+            BIT_ON( 11407 );
+            AI_SET_GUARDORDER( 0 );
+            // AI_ACT_SKILL( 654 ); // BigBangOrder
+            // AI_TAR_RND();
+	    AI_ACT_WAIT();
+            return;
+        }
+        else if ( var4 == 1 )
+        {
+            AI_SET_GLOBAL( 5, 0 );
+            BIT_OFF( 11407 );
+            // AI_ACT_SKILL( 676 ); // BigBangChallenge
+            // AI_TAR_RND();
+	    AI_ACT_WAIT();
+            return;
+        }
+        else 
+        {
+            // AI_ACT_ATTACK();
+            // AI_TAR_RND();
+	    AI_ACT_WAIT();
+            return;
+        }
+
+    }
+
+    
+    if ( AI_CHK_MYHP( 75 ) == 1 )
+    {
+        AI_SET_GLOBAL( 27, 1 );
+        
+        if ( var3 == 0 )
+        {
+            AI_SET_GLOBAL( 3, 1 );
+            BIT_ON( 11407 );
+            AI_SET_GUARDORDER( 0 );
+            // AI_ACT_SKILL( 654 ); // BigBangOrder
+            // AI_TAR_RND();
+	    AI_ACT_WAIT();
+            return;
+        }
+        else if ( var3 == 1 )
+        {
+            AI_SET_GLOBAL( 3, 2 );
+            BIT_OFF( 11407 );
+            // AI_ACT_SKILL( 676 ); // BigBangChallenge
+            // AI_TAR_RND();
+	    AI_ACT_WAIT();
+            return;
+        }
+        else if ( var3 == 2 )
+        {
+            AI_SET_GLOBAL( 3, 3 );
+            AI_ACT_ATTACK();
+            
+            if ( AI_CHK_ENID( 7 ) && ( AI_CHK_ENIDBAD( 7, 0x00080000 ) == 0 ) )
+            {
+	    	// If Haru is not dead (0x00080000)
+                AI_TAR_ID( 7 ); // Haru
+            }
+            else 
+            {
+                AI_TAR_HPMIN();
+            }
+
+            return;
+        }
+        else if ( var3 == 3 )
+        {
+            AI_SET_GLOBAL( 3, 4 );
+            // AI_ACT_SKILL( 371 ); // Makarakarn
+            // AI_TAR_MINE();
+	    AI_ACT_WAIT();
+            return;
+        }
+        else 
+        {
+            AI_SET_GLOBAL( 3, 0 );
+            // AI_ACT_ATTACK();
+	    AI_ACT_WAIT();
+            
+            if ( AI_CHK_ENID( 7 ) && ( AI_CHK_ENIDBAD( 7, 0x00080000 ) == 0 ) )
+            {
+	    	// If Haru is not dead (0x00080000)
+                // AI_TAR_ID( 7 ); // Haru
+            }
+            else 
+            {
+                // AI_TAR_HPMIN();
+            }
+
+            return;
+        }
+
+    }
+
+    // AI_ACT_ATTACK();
+    AI_ACT_WAIT();
+    
+    if ( AI_CHK_ENID( 7 ) && ( AI_CHK_ENIDBAD( 7, 0x00080000 ) == 0 ) )
+    {
+	// If Haru is not dead (0x00080000)
+        // AI_TAR_ID( 7 ); // Haru
+    }
+    else 
+    {
+        // AI_TAR_HPMIN();
+    }
+
+}
+
+
+// Procedure Index: 1
+void ai0222_extra_target()
+{
+    int var5;
+    int var6;
+    int var7;
+    int var8;
+    int var9;
+    int var10;
+    var5 = RND( 100 );
+    var6 = AI_GET_GLOBAL( 2 );
+    var7 = AI_GET_GLOBAL( 3 );
+    var8 = AI_GET_GLOBAL( 5 );
+    var9 = AI_GET_GLOBAL( 20 );
+    BIT_ON( 11348 );
+    
+    if ( AI_GET_LOCAL_PARAM( 0 ) == 0 )
+    {
+        AI_ACT_BOSS_PRESIDENT_SUMMON();
+        AI_SET_LOCAL_PARAM( 0, 1 );
+        return;
+    }
+
+    
+    if ( AI_GET_GLOBAL( 19 ) < 4 )
+    {
+        var10 = AI_GET_GLOBAL( 19 );
+        AI_SET_GLOBAL( 19, ( var10 + 1 ) );
+    }
+
+    
+    if ( AI_CHK_MORE() == 1 )
+    {
+        
+        if ( ( ( ( AI_CHK_ENHOJO( 1 ) == 1 ) || ( AI_CHK_ENHOJO( 0x10 ) == 1 ) ) || ( AI_CHK_ENHOJO( 4 ) == 1 ) ) || ( AI_CHK_ENHOJO( 0x40 ) == 1 ) )
+        {
+            
+            if ( var5 < 50 )
+            {
+                // AI_ACT_SKILL( 356 ); // Dekaja
+                // AI_TAR_RND();
+		AI_ACT_WAIT();
+                return;
+            }
+
+        }
+        else if ( ( ( ( AI_CHK_MYHOJO( 2 ) == 1 ) || ( AI_CHK_MYHOJO( 8 ) == 1 ) ) || ( AI_CHK_MYHOJO( 0x20 ) == 1 ) ) || ( AI_CHK_MYHOJO( 0x80 ) == 1 ) )
+        {
+            
+            if ( var5 < 50 )
+            {
+                // AI_ACT_SKILL( 355 ); // Dekuna
+                // AI_TAR_RND();
+		AI_ACT_WAIT();
+                return;
+            }
+
+        }
+
+        // AI_ACT_SKILL( 338 ); // HeatRiser
+        // AI_TAR_RND();
+	AI_ACT_WAIT();
+        return;
+    }
+
+    
+    if ( AI_CHK_MYHP( 25 ) == 1 )
+    {
+        AI_SET_GLOBAL( 28, 1 );
+        
+        if ( BIT_CHK( 11407 ) == 1 )
+        {
+            BIT_OFF( 11407 );
+            AI_SET_GLOBAL( 25, 0 );
+            
+            if ( AI_GET_LOCAL_PARAM( 1 ) == 0 )
+            {
+                // AI_ACT_SKILL( 650 ); // ?
+                AI_SET_LOCAL_PARAM( 1, 1 );
+            }
+            else 
+            {
+                // AI_ACT_SKILL( 676 ); // BigBangChallenge
+                AI_SET_LOCAL_PARAM( 1, 0 );
+            }
+
+            // AI_TAR_RND();
+	    AI_ACT_WAIT();
+            return;
+        }
+        else if ( ( AI_CHK_ENID( var9 ) == 1 ) && ( AI_CHK_ENIDBAD( var9, 0x00080000 ) == 0 ) )
+        {
+            // AI_ACT_ATTACK();
+            // AI_TAR_ID( var9 );
+	    AI_ACT_WAIT();
+        }
+        else 
+        {
+            AI_ACT_WAIT3( 190 );
+            AI_SET_GLOBAL( 21, 1 );
+        }
+
+        return;
+    }
+
+    
+    if ( AI_CHK_MYHP( 75 ) == 1 )
+    {
+        AI_SET_GLOBAL( 27, 1 );
+        
+        if ( BIT_CHK( 11407 ) == 1 )
+        {
+            BIT_OFF( 11407 );
+            AI_SET_GLOBAL( 25, 0 );
+            
+            if ( AI_GET_LOCAL_PARAM( 1 ) == 0 )
+            {
+                // AI_ACT_SKILL( 650 ); // ?
+                AI_SET_LOCAL_PARAM( 1, 1 );
+            }
+            else 
+            {
+                // AI_ACT_SKILL( 676 ); // BigBangChallenge
+                AI_SET_LOCAL_PARAM( 1, 0 );
+            }
+
+            // AI_TAR_RND();
+	    AI_ACT_WAIT();
+            return;
+        }
+        else if ( ( AI_CHK_ENID( var9 ) == 1 ) && ( AI_CHK_ENIDBAD( var9, 0x00080000 ) == 0 ) )
+        {
+            // AI_ACT_ATTACK();
+            // AI_TAR_ID( var9 );
+	    AI_ACT_WAIT();
+        }
+        else 
+        {
+            AI_ACT_WAIT3( 190 );
+            AI_SET_GLOBAL( 21, 1 );
+        }
+
+        return;
+    }
+
+    
+    if ( ( AI_CHK_ENID( var9 ) == 1 ) && ( AI_CHK_ENIDBAD( var9, 0x00080000 ) == 0 ) )
+    {
+        // AI_ACT_ATTACK();
+        // AI_TAR_ID( var9 );
+	AI_ACT_WAIT();
+    }
+    else 
+    {
+        AI_ACT_WAIT3( 190 );
+        AI_SET_GLOBAL( 21, 1 );
+    }
+
+}
+

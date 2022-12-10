@@ -1,0 +1,84 @@
+
+// 
+// FlowScript decompiled using Atlus Script Tools by TGE (2017-2021)
+// In the unfortunate case of any bugs, please report them back to me.
+// 
+
+// Main battle script for Corporobo MDL-DM; skinny blue robot
+
+// 
+// Procedure declarations
+// 
+
+// Procedure Index: 0
+void ai0224_main()
+{
+    int var1;
+    int var2;
+    int var3;
+    var1 = RND( 100 );
+    var2 = AI_GET_LOCAL_PARAM( 4 );
+    
+    if ( AI_CHK_EXTENDEDWAIT() == 1 )
+    {
+        // AI_ACT_SKILL( 476 ); // SelflessDevotion
+        // AI_TAR_RND();
+	AI_ACT_WAIT();
+        AI_SET_GLOBAL( 0, 1 );
+        return;
+    }
+
+    
+    if ( BIT_CHK( 11521 ) == 1 )
+    {
+        var3 = AI_GET_GLOBAL( 20 );
+        
+        if ( var2 == 0 )
+        {
+            
+            if ( ( AI_CHK_ENID( var3 ) == 1 ) && ( AI_CHK_ENIDBAD( var3, 0x00080000 ) == 0 ) )
+            {
+                // AI_ACT_SKILL( 201 ); // AssaultDrive
+                // AI_TAR_ID( var3 );
+		AI_ACT_WAIT();
+            }
+            else 
+            {
+                AI_ACT_WAIT3( 190 );
+                AI_SET_GLOBAL( 21, 1 );
+            }
+
+            AI_SET_LOCAL_PARAM( 4, 1 );
+            return;
+        }
+        else if ( ( AI_CHK_ENID( var3 ) == 1 ) && ( AI_CHK_ENIDBAD( var3, 0x00080000 ) == 0 ) )
+        {
+            // AI_ACT_SKILL( 201 ); // AssaultDrive
+            // AI_TAR_ID( var3 );
+	    AI_ACT_WAIT();
+        }
+        else 
+        {
+            AI_ACT_WAIT3( 190 );
+        }
+
+        AI_SET_LOCAL_PARAM( 4, 0 );
+        return;
+    }
+
+    
+    if ( var1 < 90 )
+    {
+        // AI_ACT_SKILL( 88 ); // FaminesBreath
+        // AI_TAR_RND();
+	AI_ACT_WAIT();
+        return;
+    }
+    else 
+    {
+        AI_ACT_WAIT3( 190 );
+        return;
+    }
+
+}
+
