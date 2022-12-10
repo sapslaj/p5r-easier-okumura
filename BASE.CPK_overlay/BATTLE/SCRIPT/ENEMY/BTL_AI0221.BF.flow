@@ -1,15 +1,15 @@
 
-// 
+//
 // FlowScript decompiled using Atlus Script Tools by TGE (2017-2021)
 // In the unfortunate case of any bugs, please report them back to me.
-// 
+//
 
 
 // Main battle script for Okumura boss
 
-// 
+//
 // Procedure declarations
-// 
+//
 
 // Procedure Index: 0
 void ai0221_main()
@@ -22,23 +22,23 @@ void ai0221_main()
     var2 = AI_GET_LOCAL_PARAM( 1 );
     var3 = RND( 100 );
     var5 = GET_COUNT( 300 );
-    
+
     if ( BIT_CHK( 11347 ) == 1 )
     {
         BIT_OFF( 11407 );
     }
 
-    
+
     if ( BIT_CHK( 11617 ) == 1 )
     {
         // AI_ACT_SKILL( 336 ); // Rakukaja
         // AI_TAR_RND();
-	AI_ACT_WAIT();
+        AI_ACT_WAIT();
         BIT_OFF( 11617 );
         return;
     }
 
-    
+
     if ( AI_CHK_FRIDHP( 478, 25 ) == 1 )
     {
         AI_SET_GLOBAL( 28, 1 );
@@ -48,16 +48,16 @@ void ai0221_main()
         AI_SET_GLOBAL( 27, 1 );
     }
 
-    
+
     if ( AI_GET_GLOBAL( 13 ) == 1 )
     {
-        
+
         if ( var2 == 0 )
         {
             AI_SET_LOCAL_PARAM( 1, 1 );
             AI_ACT_WAIT();
         }
-        else 
+        else
         {
             AI_SET_LOCAL_PARAM( 1, 0 );
             AI_ACT_WAIT3( 189 );
@@ -67,16 +67,16 @@ void ai0221_main()
     }
     else if ( AI_GET_GLOBAL( 14 ) == 1 )
     {
-        
+
         if ( AI_CHK_FRIDHP( 610, 80 ) == 1 )
         {
             // AI_ACT_SKILL( 475 ); // SacrificeOrder
             // AI_TAR_ID( 610 );
-	    AI_ACT_WAIT();
+            AI_ACT_WAIT();
             AI_SET_GLOBAL( 12, 1 );
             return;
         }
-        else 
+        else
         {
             AI_ACT_WAIT();
             return;
@@ -84,10 +84,10 @@ void ai0221_main()
 
     }
 
-    
+
     if ( BIT_CHK( 11347 ) == 1 )
     {
-        
+
         if ( var2 == 0 )
         {
             AI_SET_LOCAL_PARAM( 1, 1 );
@@ -99,7 +99,7 @@ void ai0221_main()
             AI_ACT_WAIT();
             return;
         }
-        else 
+        else
         {
             AI_SET_LOCAL_PARAM( 1, 0 );
             AI_ACT_WAIT3( 189 );
@@ -109,16 +109,16 @@ void ai0221_main()
     }
 
     var1 = AI_ACT_BOSS_PRESIDENT_SUMMON();
-    
+
     if ( var1 >= 1 )
     {
         return;
     }
 
-    
+
     if ( BIT_CHK( 11346 ) == 1 )
     {
-        
+
         if ( var2 == 0 )
         {
             AI_SET_LOCAL_PARAM( 1, 1 );
@@ -128,16 +128,16 @@ void ai0221_main()
         else if ( ( ( BIT_CHK( 11704 ) == 1 ) && ( AI_GET_LOCAL_PARAM( 0 ) == 0 ) ) && ( AI_GET_GLOBAL( 9 ) == 1 ) )
         {
             // AI_ACT_SKILL( 346 ); // Rakunda
-            
+
             // if ( ( AI_CHK_ENID( var5 ) == 1 ) && ( AI_CHK_ENIDBAD( var5, 0x00080000 ) == 0 ) )
             // {
             //     AI_TAR_ID( var5 );
             // }
-            // else 
+            // else
             // {
             //     AI_TAR_RND();
             // }
-	    AI_ACT_WAIT();
+            AI_ACT_WAIT();
 
             AI_SET_LOCAL_PARAM( 0, 1 );
             AI_SET_GLOBAL( 26, 1 );
@@ -147,7 +147,7 @@ void ai0221_main()
         {
             var6 = AI_GET_LOCAL_PARAM( 0 );
             AI_SET_LOCAL_PARAM( 0, ( var6 + 1 ) );
-            
+
             if ( AI_GET_LOCAL_PARAM( 0 ) == 8 )
             {
                 AI_SET_LOCAL_PARAM( 0, 2 );
@@ -155,12 +155,12 @@ void ai0221_main()
 
             BIT_ON( 11617 );
             AI_SET_GLOBAL( 10, 1 );
-            
+
             if ( AI_GET_GLOBAL( 26 ) == 1 )
             {
                 // AI_ACT_SKILL( 351 ); // Marakunda
                 // AI_TAR_RND();
-		AI_ACT_WAIT();
+                AI_ACT_WAIT();
                 AI_SET_GLOBAL( 26, 2 );
                 return;
             }
@@ -168,24 +168,24 @@ void ai0221_main()
             {
                 // AI_ACT_SKILL( 89 ); // FaminesScream
                 // AI_TAR_RND();
-		AI_ACT_WAIT();
+                AI_ACT_WAIT();
                 AI_SET_GLOBAL( 26, 1 );
                 return;
             }
 
         }
-        else 
+        else
         {
             AI_SET_LOCAL_PARAM( 1, 0 );
-            
+
             if ( ( ( ( AI_CHK_ENHOJO( 1 ) == 1 ) || ( AI_CHK_ENHOJO( 0x10 ) == 1 ) ) || ( AI_CHK_ENHOJO( 4 ) == 1 ) ) || ( AI_CHK_ENHOJO( 0x40 ) == 1 ) )
             {
-                
+
                 if ( var3 < 25 )
                 {
                     // AI_ACT_SKILL( 356 ); // Dekaja
                     // AI_TAR_RND();
-		    AI_ACT_WAIT();
+                    AI_ACT_WAIT();
                     var6 = AI_GET_LOCAL_PARAM( 0 );
                     AI_SET_LOCAL_PARAM( 0, ( var6 + 1 ) );
                     return;
@@ -194,12 +194,12 @@ void ai0221_main()
             }
             else if ( ( ( ( AI_CHK_MYHOJO( 2 ) == 1 ) || ( AI_CHK_MYHOJO( 8 ) == 1 ) ) || ( AI_CHK_MYHOJO( 0x20 ) == 1 ) ) || ( AI_CHK_MYHOJO( 0x80 ) == 1 ) )
             {
-                
+
                 if ( var3 < 25 )
                 {
                     // AI_ACT_SKILL( 355 ); // Dekunda
                     // AI_TAR_RND();
-		    AI_ACT_WAIT();
+                    AI_ACT_WAIT();
                     var6 = AI_GET_LOCAL_PARAM( 0 );
                     AI_SET_LOCAL_PARAM( 0, ( var6 + 1 ) );
                     return;
@@ -207,27 +207,27 @@ void ai0221_main()
 
             }
 
-            
+
             if ( ( ( ( var1 == 0 ) && ( BIT_CHK( 11348 ) == 0 ) ) && ( AI_CHK_NOTFRBAD( 16777215 ) == 1 ) ) && ( GET_COUNT( 301 ) > 1 ) )
             {
-                
+
                 if ( AI_CHK_DEATHMARCH() == 0 )
                 {
                     AI_ACT_WAIT();
                     return;
                 }
-                else 
+                else
                 {
                     // AI_ACT_SKILL( 475 ); // SacrificeOrder
                     // AI_TAR_RND();
-		    AI_ACT_WAIT();
+                    AI_ACT_WAIT();
                     var6 = AI_GET_LOCAL_PARAM( 0 );
                     AI_SET_LOCAL_PARAM( 0, ( var6 + 1 ) );
                     return;
                 }
 
             }
-            else 
+            else
             {
                 AI_ACT_WAIT();
                 return;
@@ -237,29 +237,28 @@ void ai0221_main()
 
     }
 
-    
+
     if ( ( ( ( var1 == 0 ) && ( BIT_CHK( 11348 ) == 0 ) ) && ( AI_CHK_NOTFRBAD( 16777215 ) == 1 ) ) && ( GET_COUNT( 301 ) > 1 ) )
     {
-        
+
         if ( AI_CHK_DEATHMARCH() == 0 )
         {
             AI_ACT_WAIT();
             return;
         }
-        else 
+        else
         {
             // AI_ACT_SKILL( 475 ); // SacrificeOrder
             // AI_TAR_RND();
-	    AI_ACT_WAIT();
+            AI_ACT_WAIT();
             return;
         }
 
     }
-    else 
+    else
     {
         AI_ACT_WAIT();
         return;
     }
 
 }
-
