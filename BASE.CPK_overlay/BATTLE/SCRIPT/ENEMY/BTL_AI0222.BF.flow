@@ -127,17 +127,18 @@ void ai0222_main()
         else if ( var3 == 2 )
         {
             AI_SET_GLOBAL( 3, 3 );
-            AI_ACT_ATTACK();
+            // AI_ACT_ATTACK();
             
-            if ( AI_CHK_ENID( 7 ) && ( AI_CHK_ENIDBAD( 7, 0x00080000 ) == 0 ) )
-            {
-	    	// If Haru is not dead (0x00080000)
-                AI_TAR_ID( 7 ); // Haru
-            }
-            else 
-            {
-                AI_TAR_HPMIN();
-            }
+            // if ( AI_CHK_ENID( 7 ) && ( AI_CHK_ENIDBAD( 7, 0x00080000 ) == 0 ) )
+            // {
+	    // 	// If Haru is not dead (0x00080000)
+            //     AI_TAR_ID( 7 ); // Haru
+            // }
+            // else 
+            // {
+            //     AI_TAR_HPMIN();
+            // }
+	    AI_ACT_WAIT();
 
             return;
         }
