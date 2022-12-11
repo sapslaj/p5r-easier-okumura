@@ -1,3 +1,5 @@
-hack/AtlusScriptToolchain.1/
+AtlusScriptToolchain/
+AtlusScriptToolchain.zip
 AtlusScriptCompiler.log
 *.BF
+build/
