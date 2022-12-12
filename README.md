@@ -4,14 +4,18 @@
 
 Mod for Persona 5 Royal (PC) that makes the infamous Okumura boss super easy.
 
+**This mod is a Work-in-Progress and should be considered alpha software**
+
 ## What It Does
 
-- Removes the two-turn limit for enemy waves
 - Removes all attacks from enemies
+- Removes the two-turn limit for enemy waves (sometimes)
 
 ### What it doesn't do
 
 - Removes the timer (I haven't figured out how to do that yet, sorry)
+- Removes the two-turn limit for enemy waves (sometimes)
+  - To elaborate, it seems that under certain conditions enemies will still run away. I haven't figured out how to prevent that without soft-locking the game yet.
 
 ## y tho
 
